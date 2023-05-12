@@ -6,7 +6,7 @@ import { docsearchPlugin } from '@vuepress/plugin-docsearch'
 export default defineUserConfig({
   lang: 'zh-CN',
   title: "M&P's blog",
-  description: '记录日常学习总结',
+  description: 'Notes for daily study and research',
     head: [
       ["link", {rel: "icon", href: "/assets/icons/app-indicator.svg"}]
   ],
@@ -22,34 +22,92 @@ export default defineUserConfig({
         },
         {
           text: 'Front-end',
-          children: ['/group/foo.md', '/group/bar.md'],
+          children: [
+            {
+              text: "Base",
+              children:[{
+                text: 'HTML & Javascript & CSS',
+                link: '/press/front-end/html-javascript-css.html',
+              }]
+            },
+            {
+              text: "Modern",
+              children:[{
+                text: 'Vue',
+                link: '/press/front-end/vue.html'
+              }, {
+                text: "Vuepress",
+                link: '/press/front-end/vuepress.html'
+              }]
+            },
+          ]
         },
         {
-          text: 'github',
-          link: 'https://github.com',
+          text: 'Back-end',
+          children: [
+            {
+              text: "programming-language",
+              link: "/press/back-end/programming-language.html"
+            },
+            {
+              text: "design-pattern",
+              link: "/press/back-end/design-pattern.html"
+            }
+          ],
+        },
+        // {
+        //   text: 'Mordern AI',
+        // },
+        // {
+        //   text: 'Leetcode',
+        // },
+        {
+          text: 'Github',
+          link: 'https://github.com/ThetisEliza/m-p-press',
         },            
       ],
       sidebar: [
         // SidebarItem
         {
-          text: 'Foo',
-          link: '/foo/',
+          text: 'Guide',
           children: [
-            // SidebarItem
             {
-              text: 'github',
-              link: 'https://github.com',
-              children: [],
+              text: 'Get Started',
+              link: '/guide/getting-started.html',
             },
-            // string - page file path
-            '/foo/bar.md',
+            {
+              text: 'Introduction',
+              link: '/guide/',
+            }
+          ]
+        },
+        {
+          text: 'Github',
+          link: 'https://github.com/ThetisEliza/m-p-press',
+        },
+        {
+          text: 'Front-end',
+          link: '/press/front-end/',
+          children: [
+            // SidebarItem            
+            {
+              text: 'HTML & Javascript & CSS',
+              link: '/press/front-end/html-javascript-css.html',
+            },
+            {
+              text: 'Vue',
+              link: '/press/front-end/vue.html'
+            }, 
+            {
+              text: "Vuepress",
+              link: '/press/front-end/vuepress.html'
+            }
           ],
         },
         // string - page file path
-        '/bar/README.md',
       ],
       lastUpdatedText: 'Last Updated',
-      backToHome: '回到主页'
+      backToHome: 'Back to Home'
   }),
 
   plugins: [
